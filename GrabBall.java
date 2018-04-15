@@ -17,7 +17,7 @@ public class GrabBall implements Behavior{
 	}
 
 	@Override
-	public void action() {
+	public void action() { //test comment
 		suppressed = false;
 		while(!suppressed){    
 	        LCD.clear();

@@ -3,9 +3,9 @@ package Behaviors;
 import lejos.hardware.lcd.LCD;
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
-/*import Behaviors.Wander;
-import Behaviors.ExploreIR;
-import Behaviors.TowardsIR;*/
+import Behaviors.Wander;
+//import Behaviors.TurnTowardIR;
+import Behaviors.MoveForwardsIR;
 import Behaviors.Avoid;
 import Behaviors.GrabBall;
 
@@ -16,12 +16,12 @@ public class SubSum {
 		LCD.clear();
 
 		Behavior b0 = new Wander(); //move around
- 	/*	Behavior b1 = new TowardsIR(); //move towards IR
- 		Behavior b2 = new ExploreIR(); //detect IR*/
- 		Behavior b3 = new Avoid(); //avoid obstacles
+ 	//	Behavior b1 = new TurnTowardIR(); //lines up with IR
+ 		Behavior b2 = new Avoid(); //avoid obstacles
+ 		Behavior b3 = new MoveForwardsIR(); //approaches IR
  		Behavior b4 = new GrabBall(); //grab ball
 
-		Behavior[]behArr = {b4};
+		Behavior[]behArr = {b0, b2, b3, b4};
 		
 		Arbitrator arby = new Arbitrator(behArr);
 		arby.go();

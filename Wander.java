@@ -14,6 +14,7 @@ public class Wander implements Behavior{
 	@Override
 	public boolean takeControl() {
 		// TODO Auto-generated method stub
+		ur.fetchSample(urSample, 0);
 		return true;
 	}
 
@@ -27,6 +28,8 @@ public class Wander implements Behavior{
 	        LCD.clear();
 			LCD.drawString("Moving forward", 2, 1); 
 			LCD.drawString("UR: " + urSample[0], 1, 2);
+			Var.motorB.setSpeed(200);
+			Var.motorC.setSpeed(200);
 			Var.motorB.forward();
 			Var.motorC.forward();
 			Thread.yield();
